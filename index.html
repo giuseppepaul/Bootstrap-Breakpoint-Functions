@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/usefulFuncs.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="col-xs-12">
+			<h1>Events Log</h1>
+			<ul id="log"></ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+			// Listen for crossing any breakpoint
+			$('body').bind('breakpointHit', function(){		
+				$('#log').append('<li>Hit ' + BootstrapFunctions.getBreakpoint() + ' Breakpoint.</li>');
+			});
+			// Listen for exiting a specifc breakpoint
+			$('body').bind('lg-breakpoint-exit', function(){
+				$('#log').append('<li class="text-danger">Leaving the LG breakpoint</li>');
+			});
+			// Listen for entering a specific breakpoint
+			$('body').bind('lg-breakpoint-enter', function(){
+				$('#log').append('<li class="text-success">Entering the LG breakpoint.</li>');
+			});	
+		});
+	</script>
+
+</body>
+</html>
